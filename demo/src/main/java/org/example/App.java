@@ -1,13 +1,17 @@
 package org.example;
 
-/**
- * Hello world!
- *
- */
+import org.example.notification.*;
+
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        NotificationService notification = new PopupService();
+        //OrderService order = new OrderService(notification);
+        OrderService order = new OrderService();
+        order.setNotification(notification);
+        order.placeOrder();
     }
 }
+
+//A class should ask what it needs, and not build everything itself.
